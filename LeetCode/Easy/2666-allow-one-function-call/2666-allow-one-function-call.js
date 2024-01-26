@@ -1,15 +1,18 @@
-/**
- * @param {Function} fn
- * @return {Function}
- */
-var once = function(fn) {
-    let calls = 0;
-    return function(...args){
-        if(calls >= 1) return undefined;
-        calls++;
-        return fn(...args); 
-    }
-};
+type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type OnceFn = (...args: JSONValue[]) => JSONValue | undefined
+
+function once(fn: Function): OnceFn {
+    let isCalled = false;
+
+    return function (...args) {
+        if(isCalled) return undefined;
+        
+        isCalled = true;
+        return fn(...args);
+    };
+    
+    
+}
 
 /**
  * let fn = (a,b,c) => (a + b + c)
