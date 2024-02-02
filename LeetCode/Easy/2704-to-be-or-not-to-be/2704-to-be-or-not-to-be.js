@@ -9,18 +9,18 @@ var expect = function(val) {
     }
     
     const ERROR_MESSAGE = {
-        toBe: "Not Equal",
-        notToBe: "Equal",
+        TO_BE: "Not Equal",
+        NOT_TO_BE: "Equal",
     }
 
     return {
         toBe: function (target){
             if(isEqual(val, target)) return true;
-            throw new Error(ERROR_MESSAGE.toBe);
+            throw new Error(ERROR_MESSAGE.TO_BE);
         },
         notToBe: function (target){
             if(!isEqual(val, target)) return true;
-            throw new Error(ERROR_MESSAGE.notToBe);
+            throw new Error(ERROR_MESSAGE.NOT_TO_BE);
         },
     }
 };
