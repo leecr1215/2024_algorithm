@@ -74,14 +74,10 @@ public class Main {
     }
 
     static void getMinMaxValue(){
-        int value = 0;
+        int value = numbers[0];
 
         for(int i = 0; i < N-1; i++){
-            if(i==0){
-                value = calculate(numbers[i], numbers[i+1], picked[i]);
-            }else{
-                value = calculate(value, numbers[i+1], picked[i]);
-            }
+            value = calculate(value, numbers[i+1], picked[i]);
         }
 
         if(value < min) min = value;
