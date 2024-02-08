@@ -65,7 +65,7 @@ public class Main {
                 int nx = node.x + dx[i];
                 int ny = node.y + dy[i];
 
-                if(nx >= 1 && nx <= N && ny >= 1 && ny <= M && maze[nx][ny] == 1 && !visited[nx][ny]){
+                if(checkBoundary(nx, ny)){
                     if(nx == N && ny == M) {
                         moveCnt = node.cnt + 1;
                         return;
@@ -75,5 +75,9 @@ public class Main {
                 }
             }
         }
+    }
+
+    static boolean checkBoundary(int nx, int ny){
+        return nx >= 1 && nx <= N && ny >= 1 && ny <= M && maze[nx][ny] == 1 && !visited[nx][ny];
     }
 }
