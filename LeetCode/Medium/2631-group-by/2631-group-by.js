@@ -5,8 +5,9 @@
 Array.prototype.groupBy = function(fn) {
     let obj = {};
     
-    this.forEach((element)=>{
+    this.forEach((element) => {
         const key = fn(element);
+        
         if(obj[key]){
             obj[key].push(element);
         }else{
