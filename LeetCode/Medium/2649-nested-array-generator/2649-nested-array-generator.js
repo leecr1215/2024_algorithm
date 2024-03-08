@@ -10,10 +10,7 @@ var inorderTraversal = function*(arr) {
     for(let element of flatArr){
         yield element;
     }
-    
-    // flatArr.forEach((element)=>{
-    //     yield element;
-    // });
+   
 };
 
 /**
