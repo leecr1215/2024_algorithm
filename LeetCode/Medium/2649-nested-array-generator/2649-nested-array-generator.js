@@ -5,8 +5,6 @@
 var inorderTraversal = function*(arr) {
     const flatArr = arr.flat(Infinity);
     
-    console.log(flatArr);
-    
     for(let element of flatArr){
         yield element;
     }
