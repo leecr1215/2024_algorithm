@@ -1,0 +1,15 @@
+-- 코드를 작성해주세요
+SELECT QUARTER, COUNT(*) AS ECOLI_COUNT
+FROM (SELECT (CASE 
+            WHEN DATE_FORMAT(DIFFERENTIATION_DATE, '%m') >= 10 
+                THEN '4Q'
+            WHEN DATE_FORMAT(DIFFERENTIATION_DATE, '%m') >= 7
+                THEN '3Q'
+            WHEN DATE_FORMAT(DIFFERENTIATION_DATE, '%m') >= 4
+                THEN '2Q'
+            ELSE '1Q'
+            END)
+            AS QUARTER
+    FROM ECOLI_DATA) AS QUATER_TABLE
+GROUP BY QUARTER
+ORDER BY QUARTER;
