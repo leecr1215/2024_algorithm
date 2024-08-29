@@ -1,16 +1,10 @@
 function removeDuplicates(nums: number[]): number {
-    const checkArr = [];
+   let k = 1;
     
-    let newArr = nums;
-    
-    for(let i = nums.length; i >= 0; i--){
-        if(!checkArr.includes(nums[i])){
-            checkArr.push(nums[i]);
-        }else{
-            // exist checkArr
-            newArr.splice(i, 1);
+    for(let i = 1; i < nums.length; i++){            
+        if(nums[i] != nums[i-1]){
+            nums[k++] = nums[i];
         }
     }
-    
-    return newArr.length;
+    return k;
 };
