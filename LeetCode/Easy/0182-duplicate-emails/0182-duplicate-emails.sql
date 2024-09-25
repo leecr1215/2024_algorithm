@@ -1,0 +1,5 @@
+# 2024.09.25
+SELECT Email
+FROM Person
+GROUP BY EMAIL
+HAVING COUNT(*) >= 2;
