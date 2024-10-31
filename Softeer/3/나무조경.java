@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class 나무조경 {
-
-    
     static int[][] map;
     static boolean[][] visited;
     static int N;
