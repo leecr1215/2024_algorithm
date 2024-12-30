@@ -51,29 +51,6 @@ public class Main {
     }
 
 
-    // LOWER BOUND
-    public static void binarySearch(int left){
-        int right = N-1;
-
-        while(left <= right){
-            int mid = (left + right) / 2;
-
-            if(Math.abs(solutions[left] + solutions[right]) < minSum) {
-                minSum = Math.abs(solutions[left] + solutions[right]);
-                answerLeft = solutions[left];
-                answerRight = solutions[right];
-            }
-
-            if(solutions[left] + solutions[right] < 0){ // 현재 합이 음수일 경우
-                left = mid + 1;
-            }else{
-                right = mid -1;
-            }
-
-        }
-    }
-
-
     public static int stoi(String str){
         return Integer.parseInt(str);
     }
