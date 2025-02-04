@@ -8,16 +8,6 @@ public class Main {
     static int N;
     static boolean[] visited;
 
-    public static class Node{
-        int i;
-        int j;
-
-
-        public Node(int i, int j){
-            this.i = i;
-            this.j = j;
-        }
-    }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
