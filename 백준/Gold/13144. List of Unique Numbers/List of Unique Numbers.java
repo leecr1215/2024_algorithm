@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -23,32 +21,28 @@ public class Main {
         boolean[] visited = new boolean[100_001];
 
         int start = 0;
+        int end = 0;
 
-        for(int end = 0; end < N; end++){
-            if(visited[nums[end]]){
-                // 등장했던 수
-                // start를 nums[e]가 나올 때까지 계속 뒤로 미루기
-                //
-                while(start < end){
-                    result += end-start;
-
-                    if(nums[start] == nums[end]){
-                        start++;
-                        break;
-                    }
+        while(start < N){
+            if(end == N){
+                result += end - start;
+                start++;
+            }
+            else{
+                if(visited[nums[end]]){
+                    // 중복된 수 등장!
+                    result += end - start;
 
                     visited[nums[start]] = false;
                     start++;
+
+                }else{
+                    visited[nums[end]] = true;
+                    end++;
                 }
-            }else{
-                visited[nums[end]] = true;
             }
         }
 
-        // 남은 부분들도 더해주기
-        for(int i = start; i < N; i++){
-            result += N-i;
-        }
 
         System.out.print(result);
 
