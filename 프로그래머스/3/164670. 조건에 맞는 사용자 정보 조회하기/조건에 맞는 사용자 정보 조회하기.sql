@@ -1,0 +1,10 @@
+-- 2025.03.21
+SELECT user.USER_ID, user.NICKNAME, CONCAT(user.CITY, ' ', user.STREET_ADDRESS1, ' ', user.STREET_ADDRESS2) AS 전체주소, CONCAT(SUBSTR(user.TLNO, 1, 3), '-', SUBSTR(user.TLNO, 4, 4), '-', SUBSTR(user.TLNO, 8, 4))AS 전화번호
+FROM USED_GOODS_USER user
+WHERE user.USER_ID IN (
+    SELECT board.WRITER_ID
+    FROM USED_GOODS_BOARD board
+    GROUP BY board.WRITER_ID
+    HAVING COUNT(board.WRITER_ID) >= 3
+)
+ORDER BY user.USER_ID DESC;
